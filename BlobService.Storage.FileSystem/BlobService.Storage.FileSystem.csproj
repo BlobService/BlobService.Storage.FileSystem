@@ -1,7 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <PackageLicenseUrl>https://github.com/BlobService/BlobService.Storage.FileSystem/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</RepositoryUrl>
+    <Authors>BlobService</Authors>
+    <Company>BlobService</Company>
+    <Copyright>Copyright Aram Kocharyan</Copyright>
+    <Description>FileSystem Storage Service implementation</Description>
+    <PackageTags>blobservice, blobs, files, netcore, filesystem</PackageTags>
+    <PackageIconUrl>https://avatars2.githubusercontent.com/u/26712995</PackageIconUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BlobService.Core" Version="0.1.2" />
+  </ItemGroup>
 
 </Project>
