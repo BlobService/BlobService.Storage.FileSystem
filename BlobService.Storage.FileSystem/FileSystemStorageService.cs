@@ -77,16 +77,28 @@ namespace BlobService.Storage.FileSystem
             return null;
         }
 
-        public Task<string> UpdateBlobAsync(string containerId, string subject, byte[] blob)
+        public async Task<string> UpdateBlobAsync(string containerId, string subject, byte[] blob)
         {
-            // TODO
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(containerId)) throw new ArgumentNullException(nameof(containerId));
+            if (string.IsNullOrEmpty(subject)) throw new ArgumentNullException(nameof(subject));
+            if (blob == null) throw new ArgumentNullException(nameof(blob));
+
+            var containerFolder = Path.Combine(_options.RootPath, containerId);
+            if (Directory.Exists(containerFolder))
+            {
+                var blobPath = Path.Combine(containerFolder, subject);
+                if (File.Exists(blobPath))
+                {
+                    await WriteAllBytesAsync(blobPath, blob);
+                }
+            }
+            return subject;
         }
 
         private async Task WriteAllBytesAsync(string path, byte[] blob)
         {
             using (FileStream sourceStream = new FileStream(path,
-                FileMode.Append, FileAccess.Write, FileShare.None,
+                FileMode.Create, FileAccess.Write, FileShare.None,
                 bufferSize: 4096, useAsync: true))
             {
                 await sourceStream.WriteAsync(blob, 0, blob.Length);
