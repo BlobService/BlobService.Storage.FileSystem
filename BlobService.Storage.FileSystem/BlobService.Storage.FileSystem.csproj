@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.1.2</Version>
+    <Version>0.3.1</Version>
     <PackageLicenseUrl>https://github.com/BlobService/BlobService.Storage.FileSystem/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</RepositoryUrl>
