@@ -95,7 +95,7 @@ namespace BlobService.Storage.FileSystem
             return subject;
         }
 
-        private async Task WriteAllBytesAsync(string path, byte[] blob)
+        protected async Task WriteAllBytesAsync(string path, byte[] blob)
         {
             using (FileStream sourceStream = new FileStream(path,
                 FileMode.Create, FileAccess.Write, FileShare.None,
@@ -105,7 +105,7 @@ namespace BlobService.Storage.FileSystem
             };
         }
 
-        private async Task<byte[]> ReadAllBytesAsync(string path)
+        protected async Task<byte[]> ReadAllBytesAsync(string path)
         {
             using (FileStream sourceStream = new FileStream(path,
                 FileMode.Open, FileAccess.Read, FileShare.Read,
