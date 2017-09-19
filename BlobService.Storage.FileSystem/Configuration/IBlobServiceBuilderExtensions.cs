@@ -2,14 +2,12 @@
 using BlobService.Core.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BlobService.Storage.FileSystem.Configuration
 {
     public static class IBlobServiceBuilderExtensions
     {
-        public static IBlobServiceBuilder AddFileSystemStorageService(this IBlobServiceBuilder builder, Action<FileSystemStorageOptions> setupAction = null)
+        public static IBlobServiceBuilder AddFileSystemStorageService<T>(this IBlobServiceBuilder builder, Action<FileSystemStorageOptions> setupAction = null) where T : FileSystemStorageService
         {
             var fileSystemStorageOptions = new FileSystemStorageOptions();
             setupAction?.Invoke(fileSystemStorageOptions);
@@ -17,7 +15,7 @@ namespace BlobService.Storage.FileSystem.Configuration
 
             builder.Services.AddSingleton(fileSystemStorageOptions);
 
-            builder.Services.AddScoped<IStorageService, FileSystemStorageService>();
+            builder.Services.AddScoped<IStorageService, T>();
 
             return builder;
         }

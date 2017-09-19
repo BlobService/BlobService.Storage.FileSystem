@@ -1,9 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.3.6</Version>
+    <Version>0.3.7</Version>
     <PackageLicenseUrl>https://github.com/BlobService/BlobService.Storage.FileSystem/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlobService/BlobService.Storage.FileSystem</RepositoryUrl>
@@ -16,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlobService.Core" Version="0.3.6" />
+    <PackageReference Include="BlobService.Core" Version="0.4.4" />
   </ItemGroup>
 
 </Project>
