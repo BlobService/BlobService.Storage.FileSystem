@@ -117,5 +117,16 @@ namespace BlobService.Storage.FileSystem
                 }
             }
         }
+
+        public async Task DeleteContainerAsync(string containerId)
+        {
+            if (string.IsNullOrEmpty(containerId)) throw new ArgumentNullException(nameof(containerId));
+
+            var containerFolder = Path.Combine(_options.RootPath, containerId);
+            if (Directory.Exists(containerFolder))
+            {
+                await Task.Run(() => { Directory.Delete(containerFolder); });
+            }
+        }
     }
 }
